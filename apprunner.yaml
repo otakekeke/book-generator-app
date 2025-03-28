@@ -9,12 +9,10 @@ build:
       - pip install -r requirements.txt
 run:
   # Use gunicorn to run the Flask application
-  command: python -m flask run --host=0.0.0.0 --port=8080
+  command: gunicorn --bind 0.0.0.0:8080 app:app
   network:
     port: 8080
     env: PORT
   env:
     - name: PORT
       value: "8080"
-    - name: FLASK_APP
-      value: "app.py"

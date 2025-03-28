@@ -4,11 +4,9 @@ build:
   commands:
     pre-build:
       - echo "Installing system dependencies"
-      - apt-get update && apt-get install -y python3-pip
     build:
       - echo "Installing Python dependencies"
-      - python -m pip install --upgrade pip
-      - pip install -r simplified_requirements.txt
+      - pip install -r requirements.txt
 run:
   command: python app.py
   network:
